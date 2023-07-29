@@ -1,2 +1,4 @@
-package data.models;public class Comment {
+package data.models;
+
+public class Comment {
 }
