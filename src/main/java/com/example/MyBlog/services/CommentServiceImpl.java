@@ -1,4 +1,4 @@
-package services;
+package com.example.MyBlog.services;
 
 public class CommentServiceImpl implements CommentService{
     @Override
