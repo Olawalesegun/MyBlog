@@ -1,4 +1,4 @@
-package services;
+package com.example.MyBlog.services;
 
 public interface CommentService {
     public void commentOnAPost();
