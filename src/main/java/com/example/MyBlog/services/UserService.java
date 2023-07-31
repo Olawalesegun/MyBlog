@@ -1,13 +1,14 @@
-package services;
+package com.example.MyBlog.services;
 
-import dtos.requests.LoginRequest;
-import dtos.requests.SignupRequest;
+import com.example.MyBlog.data.models.User;
+import com.example.MyBlog.dtos.requests.LoginRequest;
+import com.example.MyBlog.dtos.requests.SignupRequest;
 import org.springframework.stereotype.Service;
 
 @Service
 public interface UserService {
 
-    public void signUp(SignupRequest signupRequest) throws Exception;
+    public User signUp(SignupRequest signupRequest) throws Exception;
     public void login(LoginRequest loginRequest);
     //CREATE
 
