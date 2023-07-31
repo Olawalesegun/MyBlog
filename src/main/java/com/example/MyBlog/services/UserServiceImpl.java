@@ -1,19 +1,16 @@
-package services;
+package com.example.MyBlog.services;
 
-import data.models.User;
-import data.repositories.UserRepository;
-import dtos.requests.LoginRequest;
-import dtos.requests.SignupRequest;
+import com.example.MyBlog.data.models.User;
+import com.example.MyBlog.data.repositories.UserRepository;
+import com.example.MyBlog.dtos.requests.LoginRequest;
+import com.example.MyBlog.dtos.requests.SignupRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService{
     public UserRepository userRepository;
     @Override
-    public void signUp(SignupRequest signupRequest) throws Exception {
+    public User signUp(SignupRequest signupRequest) throws Exception {
         User user = userRepository.findByEmail(signupRequest.getEmail());
         if(user != null){
             throw new Exception("This user already exists");
@@ -21,7 +18,7 @@ public class UserServiceImpl implements UserService{
         user.setFirstName(signupRequest.getFirstName());
         user.setLastName(signupRequest.getLastName());
         user.setEmail(signupRequest.getEmail());
-        userRepository.save(user);
+        return userRepository.save(user);
         //BeanUtils.copyProperties(signupRequest, user);
 
     }
